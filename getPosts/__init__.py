@@ -10,9 +10,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python getPosts trigger function processed a request.')
 
     try:
-        url = "localhost"  # TODO: Update with appropriate MongoDB connection information
+        # TODO: Update with appropriate MongoDB connection information
+        url = "https://chaumongodb.documents.azure.com:443"
         client = pymongo.MongoClient(url)
-        database = client['azure']
+        database = client['chaumongodb']
         collection = database['posts']
 
         result = collection.find({})
